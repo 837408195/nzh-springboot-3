@@ -1,0 +1,23 @@
+#debug: true
+server:
+  port: 12001
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/employment?useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+  #mvc:view
+  thymeleaf:
+    prefix: classpath:/html/
+    suffix: .html
+    cache: false #关闭thymeleaf缓存
+  devtools:
+    restart:
+      enabled: true #设置开启热部署
+      additional-paths: src/main/java,src/main/resources,src/main/webapp
+mybatis:
+  type-aliases-package: nzh.entity
+  config-locations: classpath*:/mapper/*Mapper.xml
+  mapper-locations: classpath*:/mapper/*Mapper.xml
+

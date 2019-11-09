@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="nzh.dao.StudentDao">
+    <select id="listStudent" resultType="nzh.entity.StudentEntity">
+        select * from student
+    </select>
+    <insert id="insertStudent">
+        insert student values(null,#{sno},#{sname},#{major},#{grade},#{phone},#{skill})
+    </insert>
+    <update id="updateStudent">
+        update student set sno= #{sno},sname= #{sname},major= #{major},grade= #{grade},phone= #{phone},skill= #{skill} where id= #{id}
+    </update>
+    <delete id="deleteStudent">
+        delete from student where id= #{id}
+    </delete>
+    <select id="findStudentById" resultType="nzh.entity.StudentEntity">
+        select * from student where id = #{id}
+    </select>
+</mapper>

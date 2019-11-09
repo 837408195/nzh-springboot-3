@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns: th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>编辑学生</h1>
+<form action="/updateStudent" method="post">
+    <input type="hidden" name="id" th:value="${student.id}">
+    学号：<input type="text" name="sno" th:value="${student.sno}"><br>
+    姓名：<input type="text" name="sname" th:value="${student.sname}"><br>
+    专业：<input type="text" name="major" th:value="${student.major}"><br>
+    班级：<input type="text" name="grade" th:value="${student.grade}"><br>
+    手机号：<input type="text" name="phone" th:value="${student.phone}"><br>
+    特长：<input type="text" name="skill" th:value="${student.skill}"><br>
+    <input type="submit" value="保存"><br>
+</form>
+</body>
+</html>
