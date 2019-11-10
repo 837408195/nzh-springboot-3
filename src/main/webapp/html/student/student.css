@@ -1,6 +1,3 @@
-*{
-    list-style: none;
-}
 table tr{
     text-align: center;
 }
@@ -12,7 +9,12 @@ table tr{
     width: 200px;
     display: inline-block;
 }
-ul li{
-    margin-left: 30px;
-    float: left;
+.modal-body table td{
+    padding: 5px 0;
+}
+.modal-body table tr td:nth-child(1){
+    padding-left: 50px;
+}
+.modal-body table input{
+    margin-left: 60px;
 }

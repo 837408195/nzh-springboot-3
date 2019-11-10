@@ -14,7 +14,6 @@ public class StudentServiceImpl extends BaseDataServiceImpl implements StudentSe
     public List<Map<String, String>> listStudent() {
         Map<String, String> inParams = new HashMap<String, String>();
         List<Map<String, String>> list = getBaseDao().queryForList("studentMapper.listStudent", inParams);
-        System.out.println(list);
         return list;
     }
 

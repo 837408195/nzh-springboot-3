@@ -2,7 +2,6 @@ package nzh.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import nzh.service.StudentService;
 import java.util.List;
@@ -16,7 +15,7 @@ public class StudentController{
 
     @RequestMapping("/toList")
     public String toListStudent(){
-        return "student/list";
+        return "student/student";
     }
 
     @RequestMapping("/list")
@@ -32,21 +31,17 @@ public class StudentController{
         return toListStudent();
     }
 
-    @RequestMapping("/toAdd")
-    public String toAdd(){
-        return "student/add";
-    }
-
     @RequestMapping("/insert")
-    public String insertStudent(@RequestParam Map<String, String> map){
+    public String insertStudent(@RequestParam  Map<String, String> map){
         studentService.insertStudent(map);
         return toListStudent();
     }
 
-    @RequestMapping("/toEdit")
-    public String toEdit(Model model, Integer id){
-        model.addAttribute("student",studentService.findStudentById(id));
-        return "student/edit";
+    @RequestMapping("/selectOne")
+    @ResponseBody
+    public Object toEdit(Integer id){
+        Object object = studentService.findStudentById(id);
+        return object;
     }
     @RequestMapping("/update")
     public String updateStudent(@RequestParam Map<String, String> map){

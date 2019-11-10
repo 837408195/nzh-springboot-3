@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../lib/bootstrap-4.3.1/bootstrap.css">
+    <link rel="stylesheet" href="../../lib/bootstrap-table/bootstrap-table.min.css">
+    <link rel="stylesheet" href="../../html/student/student.css">
+</head>
+<body>
+<div class="form-group">
+    <span style="margin: 0 10px">姓名</span><input class="form-control">
+    <span style="margin: 0 10px 0 50px">学号</span><input class="form-control">
+    <button class="btn btn-primary btn-sm" style="margin-left: 50px" onclick="select()">查询</button>
+    <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal" onclick="openModal('add')">增加</button>
+</div>
+<table id="table-list" class="table-sm"></table>
+<!-- 模态框 -->
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">添加学生</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <table>
+                    <tr>
+                        <td>学号:</td>
+                        <td><input type="text" name="sno"></td>
+                    </tr>
+                    <tr>
+                        <td>姓名:</td>
+                        <td><input type="text" name="sname"></td>
+                    </tr>
+                    <tr>
+                        <td>专业:</td>
+                        <td><input type="text" name="major"></td>
+                    </tr>
+                    <tr>
+                        <td>班级:</td>
+                        <td><input type="text" name="grade"></td>
+                    </tr>
+                    <tr>
+                        <td>手机号:</td>
+                        <td><input type="text" name="phone"></td>
+                    </tr>
+                    <tr>
+                        <td>特长:</td>
+                        <td><input type="text" name="skill"></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="saveOrUpdate()">提交</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../../lib/jquery-3.4.1.js"></script>
+<script src="../../lib/bootstrap-4.3.1/bootstrap.js"></script>
+<script src="../../lib/bootstrap-table/bootstrap-table.min.js"></script>
+<script src="../../html/student/student.js"></script>
+</body>
+</html>
