@@ -1,16 +1,20 @@
 package nzh.service.impl;
 
-import nzh.dao.LoginDao;
-import nzh.entity.LoginEntity;
-import org.springframework.beans.factory.annotation.Autowired;
+import nzh.service.base.BaseDataServiceImpl;
 import org.springframework.stereotype.Service;
 import nzh.service.LoginService;
+
+import java.util.HashMap;
+import java.util.Map;
+
 @Service
-public class LoginServiceImpl implements LoginService {
-    @Autowired
-    private LoginDao loginDao;
+public class LoginServiceImpl extends BaseDataServiceImpl implements LoginService {
+
     @Override
-    public LoginEntity login(String username, String password) {
-        return loginDao.login(username,password);
+    public Object login(String username, String password) {
+        Map<String,String> map=new HashMap<String,String>();
+        map.put("username",username);
+        map.put("password",password);
+        return getBaseDao().queryForObject("loginMapper.login",map);
     }
 }

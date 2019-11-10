@@ -1,36 +1,46 @@
 package nzh.controller;
 
-import nzh.entity.StudentEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import nzh.service.StudentService;
+import java.util.List;
+import java.util.Map;
 
 @Controller
-public class StudentController {
+@RequestMapping("/student")
+public class StudentController{
     @Autowired
     private StudentService studentService;
-    @RequestMapping("/listStudent")
-    public String listStudent(Model model) {
-        model.addAttribute("students", studentService.listStudent());
+
+    @RequestMapping("/toList")
+    public String toListStudent(){
         return "student/list";
     }
 
-    @RequestMapping("/deleteStudent")
+    @RequestMapping("/list")
+    @ResponseBody
+    public List<Map<String,String>> listStudent() {
+        List<Map<String,String>> list = studentService.listStudent();
+        return list;
+    }
+
+    @RequestMapping("/delete")
     public String deleteStudent(Integer id) {
         studentService.deleteStudent(id);
-        return "redirect:/listStudent";
+        return toListStudent();
     }
 
     @RequestMapping("/toAdd")
     public String toAdd(){
         return "student/add";
     }
-    @RequestMapping("/insertStudent")
-    public String insertStudent(StudentEntity studentEntity) {
-        studentService.insertStudent(studentEntity);
-        return "redirect:/listStudent";
+
+    @RequestMapping("/insert")
+    public String insertStudent(@RequestParam Map<String, String> map){
+        studentService.insertStudent(map);
+        return toListStudent();
     }
 
     @RequestMapping("/toEdit")
@@ -38,10 +48,10 @@ public class StudentController {
         model.addAttribute("student",studentService.findStudentById(id));
         return "student/edit";
     }
-    @RequestMapping("/updateStudent")
-    public String updateStudent(StudentEntity studentEntity){
-        studentService.updateStudent(studentEntity);
-        return "redirect:/listStudent";
+    @RequestMapping("/update")
+    public String updateStudent(@RequestParam Map<String, String> map){
+        studentService.updateStudent(map);
+        return toListStudent();
     }
 
 

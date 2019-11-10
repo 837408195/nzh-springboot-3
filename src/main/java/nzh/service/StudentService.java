@@ -1,13 +1,12 @@
 package nzh.service;
 
-import nzh.entity.StudentEntity;
-
 import java.util.List;
+import java.util.Map;
 
 public interface StudentService {
-    List<StudentEntity> listStudent();
-    StudentEntity findStudentById(Integer id);
-    void insertStudent(StudentEntity StudentEntity);
-    void updateStudent(StudentEntity StudentEntity);
+    List<Map<String, String>> listStudent();
+    Object findStudentById(Integer id);
+    void insertStudent(Map<String, String> map);
+    void updateStudent(Map<String, String> map);
     void deleteStudent(Integer id);
 }

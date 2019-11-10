@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>编辑学生</h1>
-<form action="/updateStudent" method="post">
+<form action="/student/update" method="post">
     <input type="hidden" name="id" th:value="${student.id}">
     学号：<input type="text" name="sno" th:value="${student.sno}"><br>
     姓名：<input type="text" name="sname" th:value="${student.sname}"><br>
